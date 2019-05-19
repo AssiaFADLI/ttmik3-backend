@@ -1,0 +1,10 @@
+server:
+  port: 8093
+
+spring:
+  jpa:
+    show-sql: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ttmik # started in a Docker container, see docker-compose.yml
+    username: ttmik
+    password: ttmik

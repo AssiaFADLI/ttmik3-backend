@@ -1,0 +1,50 @@
+plugins {
+  id 'org.springframework.boot' version '2.2.0.BUILD-SNAPSHOT'
+  id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.viseo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+  mavenCentral()
+  maven { url 'https://repo.spring.io/snapshot' }
+  maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+  implementation group: 'org.mapstruct', name: 'mapstruct-jdk8', version: property('mapstruct.version')
+
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'org.flywaydb:flyway-core'
+
+  compileOnly group: 'org.projectlombok', name: 'lombok'
+
+  annotationProcessor group: 'org.projectlombok', name: 'lombok'
+  annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: property('mapstruct.version')
+
+  runtimeOnly 'org.postgresql:postgresql'
+
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
+  testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter'
+  testImplementation group: 'org.projectlombok', name: 'lombok'
+
+  testAnnotationProcessor group: 'org.projectlombok', name: 'lombok'
+}
+
+dependencyManagement {
+  imports {
+    mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1'
+  }
+}
+
+configurations {
+  testCompile.exclude module: 'junit'
+}

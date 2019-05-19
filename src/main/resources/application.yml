@@ -1,0 +1,26 @@
+info:
+  app:
+    name: wired-service-rds
+    version: 1.0.0-SNAPSHOT
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ttmik
+    #username: ${ttmik_username}
+    #password: ${ttmik_password}
+    username: ttmik
+    password: ttmik
+    continue-on-error: true
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 2
+      data-source-properties:
+        socketTimeout: 120
+  flyway:
+    table: schema_version
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
