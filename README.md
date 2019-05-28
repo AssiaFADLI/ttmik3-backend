@@ -1,4 +1,27 @@
-# Getting Started
+# Ttmik Service
+
+### Requirement
+
+You need to get JDK 8 version
+
+### Build
+
+    ./gradlew build
+
+### Boot of service
+
+    ./gradlew bootRun
+    
+#### Run the service in local mode
+
+- Run postgres container
+                
+       docker-compose up 
+
+- Boot the application with local profile
+
+        ./gradlew bootRun -Dspring.profiles.active=local
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:

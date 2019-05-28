@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS ACCOUNT
+(
+    login    VARCHAR(32) NOT NULL,
+    email    VARCHAR(32) NOT NULL,
+    password VARCHAR(32) NOT NULL,
+    PRIMARY KEY (login)
+);
