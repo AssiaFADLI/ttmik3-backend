@@ -10,9 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -39,7 +37,6 @@ class AccountServiceTest {
                         a.getEmail().equals("email") &&
                         a.getPassword().equals("password")
         ));
-
     }
 
     @Test

@@ -64,7 +64,7 @@ class AccountControllerApiTest extends AbstractControllerTest {
     }
 
     @Test
-    void should_creat_account() throws Exception {
+    void should_create_account() throws Exception {
         // when
         mvc.perform(post(AccountController.PATH)
                 .contentType(APPLICATION_JSON)

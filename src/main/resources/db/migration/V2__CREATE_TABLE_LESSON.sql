@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS LESSON
+(
+    number   INTEGER NOT NULL,
+    title    VARCHAR(32) NOT NULL,
+    summary VARCHAR(32) NOT NULL,
+    PRIMARY KEY (number)
+);

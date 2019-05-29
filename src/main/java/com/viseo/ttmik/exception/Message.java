@@ -13,5 +13,5 @@ public class Message {
     private final String message;
 
     @Singular
-    private  final Map<String, String> params;
+    private  final Map<String, Object> params;
 }

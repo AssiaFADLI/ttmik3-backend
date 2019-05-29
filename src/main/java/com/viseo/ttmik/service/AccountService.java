@@ -20,8 +20,8 @@ public class AccountService {
     @Transactional
     public void createAccount(AccountDto dto) throws AccountException {
         Optional<AccountEntity> optionalEntity = accountRepository.findById(dto.getLogin());
-        if(optionalEntity.isPresent()){
-            throw new AccountException(dto.getLogin(),"The account with the given login already exists");
+        if (optionalEntity.isPresent()) {
+            throw new AccountException(dto.getLogin(), "The account with the given login already exists");
         }
 
         AccountEntity entity = AccountMapper.INSTANCE.toEntity(dto);

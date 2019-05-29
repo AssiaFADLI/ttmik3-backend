@@ -1,9 +1,11 @@
 package com.viseo.ttmik.endpoint;
 
-import com.viseo.ttmik.dto.AccountDto;
-import com.viseo.ttmik.exception.AccountException;
+
+import com.viseo.ttmik.dto.LessonDto;
+import com.viseo.ttmik.exception.LessonException;
+import com.viseo.ttmik.exception.Message;
 import com.viseo.ttmik.exception.TtmikMessageException;
-import com.viseo.ttmik.service.AccountService;
+import com.viseo.ttmik.service.LessonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -15,26 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-import static com.viseo.ttmik.exception.TtmikMessageException.build;
-
 @RestController
-@RequestMapping(AccountController.PATH)
+@RequestMapping(LessonController.PATH)
 @RequiredArgsConstructor
 @Validated
 @Slf4j
-public class AccountController {
-    public static final String PATH = "/ttmik/accounts";
+public class LessonController {
+    public static final String PATH = "/ttmik/lessons";
 
-    private final AccountService accountService;
+    private final LessonService lessonService;
 
     @PostMapping
-    public ResponseEntity createAccount(@RequestBody @Valid AccountDto dto){
+    public ResponseEntity createLesson(@RequestBody @Valid LessonDto dto) {
         try {
-            accountService.createAccount(dto);
+            lessonService.createLesson(dto);
             return ResponseEntity.ok().build();
-        } catch (AccountException e) {
+        } catch (LessonException e) {
             return ResponseEntity.badRequest().body(
-                    build(e.getReason(), "account", e.getAccount())
+                    TtmikMessageException.build(e.getReason(), "lesson", e.getLesson())
             );
         }
     }
