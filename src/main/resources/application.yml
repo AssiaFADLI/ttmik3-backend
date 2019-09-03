@@ -6,9 +6,9 @@ info:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://${TTMIK_MAIN_HOST}:5433/ttmik
-    username: ${ttmik_username}
-    password: ${ttmik_password}
+    url: jdbc:postgresql://localhost:6432/ttmik # started in a Docker container, see docker-compose.yml
+    username: ttmik
+    password: ttmik
     continue-on-error: true
     hikari:
       maximum-pool-size: 15

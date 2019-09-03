@@ -2,18 +2,16 @@ package com.viseo.ttmik.endpoint;
 
 import com.viseo.ttmik.dto.AccountDto;
 import com.viseo.ttmik.exception.AccountException;
-import com.viseo.ttmik.exception.TtmikMessageException;
 import com.viseo.ttmik.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.util.List;
 
 import static com.viseo.ttmik.exception.TtmikMessageException.build;
 
@@ -37,5 +35,10 @@ public class AccountController {
                     build(e.getReason(), "account", e.getAccount())
             );
         }
+    }
+
+    @GetMapping
+    public List<AccountDto> getAccounts() {
+        return accountService.getAccounts();
     }
 }
